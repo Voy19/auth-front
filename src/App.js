@@ -3,8 +3,15 @@ import './App.css';
 import LoginForm from "./components/LoginForm";
 import styled from "styled-components"
 import RegistrationForm from "./components/RegistrationForm";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const RegFormParent = styled.div`
+    width: 500px;
     display: flex;
     justify-content: center;
     border: 1px solid lightblue;
@@ -14,16 +21,24 @@ const RegFormParent = styled.div`
           flex-direction: column;
           width: 70vw;
         }
-        
 `;
 
 function App() {
     return (
-        <RegFormParent>
-            <LoginForm/>
-            <RegistrationForm/>
-        </RegFormParent>
+        <Router>
+            <RegFormParent>
+                <Switch>
+                    <Route path="/login">
+                        <LoginForm />
+                    </Route>
+                    <Route path="/registration">
+                        <RegistrationForm />
+                    </Route>
+                </Switch>
+            </RegFormParent>
+        </Router>
     );
+
 }
 
 export default App;

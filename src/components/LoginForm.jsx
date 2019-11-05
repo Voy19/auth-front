@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import styled from 'styled-components'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const StyledForm = styled.div`
     padding: 25px;
@@ -19,6 +25,11 @@ const StyledInput = styled.input`
 const FormTitle = styled.h3`
     font-weight: lighter;
     font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.85); 
+`;
+const StyledText = styled.p`
+    font-weight: lighter;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.85); 
 `;
 const SubmitButton = styled.button`
@@ -72,29 +83,32 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <StyledForm>
-                <FormTitle>Sign In</FormTitle>
-                <br/>
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        <StyledInput placeholder="Login"
-                                     type="text"
-                                     name="login"
-                                     value={this.state.login}
-                                     onChange={this.onChange}/>
-                    </div>
+                <StyledForm>
+                    <FormTitle>Sign In</FormTitle>
                     <br/>
-                    <div>
-                        <StyledInput placeholder="Password"
-                                     type="password"
-                                     name="password"
-                                     value={this.state.password}
-                                     onChange={this.onChange}/>
-                    </div>
-                    <br/>
-                    <SubmitButton type="submit">Sing In</SubmitButton>
-                </form>
-            </StyledForm>
+                    <form onSubmit={this.onSubmit}>
+                        <div>
+                            <StyledInput placeholder="Login"
+                                         type="text"
+                                         name="login"
+                                         value={this.state.login}
+                                         onChange={this.onChange}/>
+                        </div>
+                        <br/>
+                        <div>
+                            <StyledInput placeholder="Password"
+                                         type="password"
+                                         name="password"
+                                         value={this.state.password}
+                                         onChange={this.onChange}/>
+                        </div>
+                        <br/>
+                        <SubmitButton type="submit">Sing In</SubmitButton>
+                        <br/>
+                        <br/>
+                        <StyledText>Don't have an account? <Link to={"/registration"}>Sign Up</Link></StyledText>
+                    </form>
+                </StyledForm>
         );
     }
 }
