@@ -29,12 +29,13 @@ const formValid = ({validationErrors, ...rest}) => {
 };
 
 const StyledForm = styled.div`
-
     padding: 25px;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
 `;
 const StyledInput = styled.input`
     width: 100%;
-    padding: 2.5px;
     background: transparent;
     border: none;
     outline: none;
@@ -44,9 +45,9 @@ const StyledInput = styled.input`
          }
     border-bottom:
     ${props => props.error
-        ?`2px solid red;`
-        :`2px solid rgba(255, 255, 255, 0.8);`
-    }
+    ? `2px solid red;`
+    : `2px solid rgba(255, 255, 255, 0.8);`
+}
 `;
 const FormTitle = styled.h3`
     font-weight: lighter;
@@ -165,72 +166,65 @@ class LoginForm extends Component {
 
     render() {
         return (
-                <StyledForm>
-                    <FormTitle>Sign Up</FormTitle>
+            <StyledForm>
+                <FormTitle>Sign Up</FormTitle>
+                <br/>
+                <form onSubmit={this.onSubmit}>
+                        <StyledInput placeholder="Login"
+                                     type="text"
+                                     name="login"
+                                     value={this.state.login}
+                                     onChange={this.handleChange}
+                                     error={this.state.validationErrors.login ? 1 : 0}/>
                     <br/>
-                    <form onSubmit={this.onSubmit}>
-                        <div>
-                            <StyledInput placeholder="Login"
-                                         type="text"
-                                         name="login"
-                                         value={this.state.login}
-                                         onChange={this.handleChange}
-                                         error={this.state.validationErrors.login ? 1 : 0}/>
-
-                        </div>
-                        <br/>
-                        <div>
-                            <StyledInput placeholder="First Name"
-                                         type="text"
-                                         name="name"
-                                         value={this.state.name}
-                                         onChange={this.handleChange}
-                                         error={this.state.validationErrors.name ? 1 : 0}/>
-                        </div>
-                        <br/>
-                        <div>
-                            <StyledInput placeholder="Last Name"
-                                         type="text"
-                                         name="surname"
-                                         value={this.state.surname}
-                                         onChange={this.handleChange}
-                                         error={this.state.validationErrors.surname ? 1 : 0}/>
-                        </div>
-                        <br/>
-                        <div>
-                            <StyledInput placeholder="Email Address"
-                                         type="email"
-                                         name="email"
-                                         value={this.state.email}
-                                         onChange={this.handleChange}
-                                         error={this.state.validationErrors.email ? 1 : 0}/>
-                        </div>
-                        <br/>
-
-                        <div>
-                            <StyledInput placeholder="Password"
-                                         type="password"
-                                         name="password"
-                                         value={this.state.password}
-                                         onChange={this.handleChange}
-                                         error={this.state.validationErrors.password ? 1 : 0}/>
-                        </div>
-                        <br/>
-                        <div>
-                            <StyledInput placeholder="Repeat Password"
-                                         type="password"
-                                         name="repeatPassword"
-                                         value={this.state.repeatPassword}
-                                         onChange={this.handleChange}
-                                         error={this.state.validationErrors.repeatPassword ? 1 : 0}/>
-                        </div>
-                        <br/>
-                        <SubmitButton type="submit">Sing Up</SubmitButton>
-                        <br/>
-                        <br/>
-                        <StyledText>Already have an account? <Link to={"/login"}>Sign In</Link></StyledText>
-                    </form>
-                </StyledForm>
+                    <br/>
+                        <StyledInput placeholder="First Name"
+                                     type="text"
+                                     name="name"
+                                     value={this.state.name}
+                                     onChange={this.handleChange}
+                                     error={this.state.validationErrors.name ? 1 : 0}/>
+                    <br/>
+                    <br/>
+                        <StyledInput placeholder="Last Name"
+                                     type="text"
+                                     name="surname"
+                                     value={this.state.surname}
+                                     onChange={this.handleChange}
+                                     error={this.state.validationErrors.surname ? 1 : 0}/>
+                    <br/>
+                    <br/>
+                        <StyledInput placeholder="Email Address"
+                                     type="email"
+                                     name="email"
+                                     value={this.state.email}
+                                     onChange={this.handleChange}
+                                     error={this.state.validationErrors.email ? 1 : 0}/>
+                    <br/>
+                    <br/>
+                        <StyledInput placeholder="Password"
+                                     type="password"
+                                     name="password"
+                                     value={this.state.password}
+                                     onChange={this.handleChange}
+                                     error={this.state.validationErrors.password ? 1 : 0}/>
+                    <br/>
+                    <br/>
+                        <StyledInput placeholder="Repeat Password"
+                                     type="password"
+                                     name="repeatPassword"
+                                     value={this.state.repeatPassword}
+                                     onChange={this.handleChange}
+                                     error={this.state.validationErrors.repeatPassword ? 1 : 0}/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <SubmitButton type="submit">Sing Up</SubmitButton>
+                    <br/>
+                    <br/>
+                    <StyledText>Already have an account? <Link to={"/login"}>Sign In</Link></StyledText>
+                </form>
+            </StyledForm>
         );
     }
 }

@@ -9,10 +9,12 @@ import {
 
 const StyledForm = styled.div`
     padding: 25px;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
 `;
 const StyledInput = styled.input`
     width: 100%;
-    padding: 2.5px;
     background: transparent;
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
@@ -87,21 +89,20 @@ class LoginForm extends Component {
                     <FormTitle>Sign In</FormTitle>
                     <br/>
                     <form onSubmit={this.onSubmit}>
-                        <div>
                             <StyledInput placeholder="Login"
                                          type="text"
                                          name="login"
                                          value={this.state.login}
                                          onChange={this.onChange}/>
-                        </div>
                         <br/>
-                        <div>
+                        <br/>
                             <StyledInput placeholder="Password"
                                          type="password"
                                          name="password"
                                          value={this.state.password}
                                          onChange={this.onChange}/>
-                        </div>
+                        <br/>
+                        <br/>
                         <br/>
                         <SubmitButton type="submit">Sing In</SubmitButton>
                         <br/>
