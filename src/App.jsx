@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import LoginForm from "./routes/LoginForm";
 import styled from "styled-components";
+import LoginForm from "./routes/LoginForm";
 import RegistrationForm from "./routes/RegistrationForm";
+import AssesmentForm from "./routes/AssesmentForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const RegFormParent = styled.div`
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/registration">
             <RegistrationForm />
+          </Route>
+          <Route path="/assesment">
+            <AssesmentForm />
           </Route>
         </Switch>
       </RegFormParent>
